@@ -5,6 +5,16 @@ var View = require('./view.js'),
         namespace: 'home',
         private: true,
         onInit: function (){
+            this.servicesList.push(this.getDeputados);
+        },
+        getDeputados: function(){
+            var self = this;
+    
+            return self.callService({
+                url: 'https://dadosabertos.camara.leg.br/api/v2/deputados'
+            }, function(data){
+                self.data.deputados = data.dados;
+            })
         },
         onSerialized: function () {
             console.log(this);
