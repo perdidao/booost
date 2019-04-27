@@ -58,8 +58,9 @@ grunt.initConfig({
 				options: {
 					port: 9000,
 					base: './develop/',
-					hostname: 'localhost',
-					livereload: true
+					hostname: 'lucasalmeida.dev.br',
+					livereload: true,
+					open: true
 				}
 			}
 		},
