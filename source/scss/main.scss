@@ -1,0 +1,18 @@
+/* Initial configuration */
+@import 'libs/reset';
+
+/* Global and generic styles */
+@import 'general/variables';
+@import 'general/mixins';
+@import 'general/functions';
+@import 'general/fonts';
+@import 'general/layout';
+
+/* Libs */
+@import 'libs/icons';
+
+/* Elements */
+@import 'elements/header';
+@import 'elements/footer';
+
+/* Pages and sections */

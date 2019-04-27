@@ -1,0 +1,13 @@
+{{#extend layout }}
+{{#content "content"}}
+    {{> elements/header}}
+    <main id="barba-wrapper" class="content-{{ page }}" data-body-class="{{ page }}">
+        <div class="barba-container container" data-base="{{ base }}" data-namespace="{{ page }}" data-pageview="{{ pageview }}">
+            {{#block "body"}}
+            <span></span>
+            {{/block}}
+        </div>
+    </main>
+    {{> elements/footer}}
+{{/content}}
+{{/extend}}
