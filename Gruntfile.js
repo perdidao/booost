@@ -232,7 +232,24 @@ grunt.initConfig({
 					}
 				]
 			}
+		},
+
+		postcss: {
+			options: {
+				processors: [
+					require('pixrem')(),
+					require('autoprefixer')({browsers: 'last 2 versions'}),
+					require('cssnano')()
+				]
+			},
+			dev: {
+				src: './develop/css/*.css'
+			},
+			dist: {
+				src: './dist/css/*.css'
+			}
 		}
+
 
 	});
 
@@ -246,13 +263,14 @@ grunt.initConfig({
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-cwebp');
 	grunt.loadNpmTasks('grunt-webpack');
+	grunt.loadNpmTasks('grunt-postcss');
 
 	grunt.task.run('notify_hooks');
 
 	// Default tasks
 	grunt.registerTask('default', ['watch']);
 	grunt.registerTask('dev', ['sass:dev', 'copy:dev', 'hb:watch', 'connect:server', 'watch', 'webpack']);
-	grunt.registerTask('build', ['clean:dev', 'sass:dev', 'copy:dev', 'imagemin', 'cwebp', 'hb:dev', 'webpack']);
-	grunt.registerTask('deploy', ['clean:dist', 'sass:dist', 'copy:dist', 'imagemin', 'cwebp', 'hb:dist', 'webpack']);
+	grunt.registerTask('build', ['clean:dev', 'sass:dev', 'postcss:dev', 'copy:dev', 'imagemin', 'cwebp', 'hb:dev', 'webpack']);
+	grunt.registerTask('deploy', ['clean:dist', 'sass:dist', 'postcss:dist', 'copy:dist', 'imagemin', 'cwebp', 'hb:dist', 'webpack']);
 
 };
