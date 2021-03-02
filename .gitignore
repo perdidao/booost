@@ -1,11 +1,10 @@
-# Files
-.DS_Store
+# Packages
 package-lock.json
 yarn.lock
 yarn-error.log
-
-# Folders
 .sass-cache/
 node_modules/
-develop/
-dist/
+
+# Environment
+.DS_Store
+.env
