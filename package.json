@@ -9,9 +9,11 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "node app.js"
+    "build": "cp -R assets/images/ public/images/ && sass assets/styles/main.scss:public/styles/main.css",
+    "start": "concurrently \"node app.js\" \"sass --watch assets/styles/main.scss:public/styles/main.css\""
   },
   "dependencies": {
+    "concurrently": "^6.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1"

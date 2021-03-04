@@ -1,3 +1,4 @@
+import Express from "express";
 import exphbs from "express-handlebars";
 
 const AppSettings = (app) => {
@@ -10,6 +11,7 @@ const AppSettings = (app) => {
   );
   app.set("view engine", "hbs");
   app.set("views", "./app/views");
+  app.use(Express.static("./public"));
 
   app.listen(process.env.PORT, () =>
     console.log(`Running on localhost port ${process.env.PORT}`)
